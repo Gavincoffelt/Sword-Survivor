@@ -1,30 +1,49 @@
 #include "raylib.h"
-#include "FallingFactory.h"
 #include "SimpleSprite.h"
+#include "Character.h"
 #include <iostream>
-#include <string>
+#include <vector>
+using namespace std;
 int main()
-
 {
+	Rectangle bob();
 	int screenheight = 800;
 	int screenwidth = 600;
 	InitWindow(screenwidth, screenheight, "Half Life 3");
+	Character Player;
+	SimpleSprite swords[8];
+	
 	SetTargetFPS(60);
-	FallingFactory::init();
+	//FallingFactory::init();
 	Vector2 delta; delta.x = 0; delta.y = 6;
 	
 				
     
 	while (!WindowShouldClose())   
 	{
+		Player.update(GetFrameTime());
+
 		// Update
-		FallingFactory::spriteMasters[1].translate(delta);
 
 		// Draw
 		BeginDrawing();
 		
 		ClearBackground(RAYWHITE);
-		FallingFactory::getRandom();
+		
+		Player.movement(GetFrameTime());
+		Player.draw();
+		for (int i = 0; i < 8; i++) {
+			swords[i].translate(delta);
+			swords[i].draw();
+		}
+		
+		if (CheckCollisionRecs(Player.steve,swords[1].bob)) {
+
+			DrawText("YOU LOSE", 200, 200, 35, RED);
+		}
+								
+		
+		
 		EndDrawing();
 		//----------------------------------------------------------------------------------
 	}

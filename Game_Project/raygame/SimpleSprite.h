@@ -6,17 +6,16 @@ class SimpleSprite
 {
 	
 public:
-	std::string sprType;
+	int arrnum = 0;
+	Rectangle bob{pos.x,pos.y,18,5};
 	Vector2 pos;
-	float rot;
 	int xrand = rand() % 600;
 //	Rectangle r1, r2;//r1 = size of texture , r2 = calculated destination size
 
-	Texture2D texture;
+	Texture2D texture[8];
 
 	void translate(Vector2 delta); // move the sprites position by delta.
 	void draw(); //draw the sprite on screen
 	SimpleSprite();
-	SimpleSprite(const std::string & filename, const std::string _sprType = "");
 	~SimpleSprite();
 };

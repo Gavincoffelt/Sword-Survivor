@@ -1,4 +1,3 @@
-﻿  SimpleSprite.cpp
-c:\users\s189067\downloads\singleton-game\raygame-master\raygame\simplesprite.cpp(8): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\s189067\downloads\singleton-game\raygame-master\raygame\simplesprite.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  raygame.vcxproj -> C:\Users\s189067\Downloads\Singleton-Game\raygame-master\x64\Debug\raygame.exe
+﻿  main.cpp
+c:\users\s189067\downloads\swordsurvivor\game_project\raygame\main.cpp(9): warning C4930: 'Rectangle bob(void)': prototyped function not called (was a variable definition intended?)
+  raygame.vcxproj -> C:\Users\s189067\Downloads\SwordSurvivor\Game_Project\x64\Debug\raygame.exe
