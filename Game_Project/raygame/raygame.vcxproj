@@ -133,12 +133,17 @@
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="FallingFactory.cpp" />
+    <ClCompile Include="gameState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimpleSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="basegamestate.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="endstate.h" />
     <ClInclude Include="FallingFactory.h" />
+    <ClInclude Include="gameState.h" />
+    <ClInclude Include="menustate.h" />
     <ClInclude Include="SimpleSprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
