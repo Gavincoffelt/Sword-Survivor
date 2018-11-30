@@ -9,7 +9,7 @@ void Character::update(float delta)
 	} if (cellcount == 4) {
 		cellcount = 0;
 	}
-	steve.x = pos.x+10;
+	steve.x = pos.x+15;
 	steve.y = pos.y+45;
 }
 
@@ -40,7 +40,6 @@ void Character::draw()
 
 Character::Character()
 {
-	
 	pos.x = 200;
 	pos.y = 400;
 	speed = 300;

@@ -5,7 +5,7 @@
 class Character {
 public:
 	Vector2 pos;
-	Rectangle steve{pos.x+10,pos.y+30,30,5};
+	Rectangle steve{pos.x+10,pos.y+30,20,5};
 
 	float max = 0.2f;
 	float iterator = 0;
@@ -27,4 +27,11 @@ public:
 	void draw(); //draw the sprite on screen
 	Character();
 	~Character();
+	
+};
+struct highscore {
+	public:
+		float finaltimer;
+		int finalscore;
+
 };

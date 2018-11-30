@@ -1,11 +1,12 @@
 #pragma once
 #include "gamestate.h"
-
+#include "basegamestate.h"
 class endstate : public gamestate
 {
 	bool readyForNext;
 
 public:
+	
 	endstate()
 	{
 		readyForNext = false;
@@ -13,16 +14,18 @@ public:
 
 	virtual void tick(float deltaTime)
 	{
-		readyForNext = IsMouseButtonPressed(0) || readyForNext;
+		readyForNext = IsMouseButtonPressed(1) || readyForNext;
 	}
 
 	virtual void draw()
 	{
-		const int fontSize = 32;
-
-		int xPos = GetScreenWidth() / 2 - MeasureText("End", fontSize) / 2;
-		int yPos = GetScreenHeight() / 2 - fontSize / 2;
-		DrawText("End", xPos, yPos, fontSize, DARKBLUE);
+		ClearBackground(DARKBLUE);
+		const int fontSize = 62;
+		int xPos = 250;
+		int yPos = 50;
+		DrawText("End", xPos, yPos, fontSize, BLACK);
+		DrawText("RMB to Restart!", 50, 500, fontSize, BLACK);
+		
 	}
 
 	virtual GameStates next()

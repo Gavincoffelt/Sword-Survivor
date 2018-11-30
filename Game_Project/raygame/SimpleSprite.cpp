@@ -1,5 +1,5 @@
 #include "SimpleSprite.h"
-
+#include <string>
 void SimpleSprite::translate(Vector2 delta)
 {
 	//pos.x += delta.x;
@@ -19,7 +19,7 @@ void SimpleSprite::draw()
 	}
 	DrawTextureEx(texture[random], pos, rot, 3, WHITE);
 	
-	DrawRectangle(bob.x - 25, bob.y - 8, bob.width, bob.height,BLANK);
+	DrawRectangle(bob.x - 20, bob.y - 8, bob.width, bob.height,BLANK);
 }
 
 void SimpleSprite::variables(SimpleSprite& sword, Character target )
@@ -29,30 +29,34 @@ void SimpleSprite::variables(SimpleSprite& sword, Character target )
 	}
 	if (sword.random == 0) {
 		sword.speed = 500.0f;
+		sword.bob.width = 10;
+		sword.bob.x += 5;
 	}if (sword.random == 1) {
 		sword.speed = 250.0f;
 	}if (sword.random == 2) {
-		sword.speed = 250.0f;
+		sword.speed = 265.0f;
 	}if (sword.random == 3) {
 		sword.speed = 200.0f;
+		sword.bob.x += 10;
 	}if (sword.random == 4) {
 		sword.speed = 375.0f;
 	}if (sword.random == 5) {
 		sword.speed = 275.0f;
 	}if (sword.random == 6) {
 		sword.speed = 380.0f;
-		if (target.pos.x > sword.pos.x) {
+	if (target.pos.x > sword.pos.x) {
 			sword.pos.x++;
 			sword.rot = 145;
-		}if (target.pos.x < sword.pos.x) {
+	}if (target.pos.x < sword.pos.x) {
 			sword.pos.x--;
 			sword.rot = 225;
-		}
+	}
 	}if (sword.random == 7) {
 		sword.speed = 400.0f;
 		if (target.pos.x > sword.pos.x) {
 			sword.pos.x++;
 			sword.rot = 145;
+			
 		}if (target.pos.x < sword.pos.x) {
 			sword.pos.x--;
 			sword.rot = 225;
@@ -64,7 +68,7 @@ void SimpleSprite::movement(float delta)
 {
 	pos.y += speed * delta;
 	if (pos.y >= 800) {
-		pos.y = -30;
+		pos.y = -25;
 		pos.x = 10 + rand() % 580;
 	}
 	bob.x = pos.x;
@@ -73,14 +77,9 @@ void SimpleSprite::movement(float delta)
 
 SimpleSprite::SimpleSprite()
 {
-	texture[0] = LoadTexture("Weapons/weapon_0.png"),
-	texture[1] = LoadTexture("Weapons/weapon_1.png"),
-	texture[2] = LoadTexture("Weapons/weapon_2.png"),
-	texture[3] = LoadTexture("Weapons/weapon_3.png"),
-	texture[4] = LoadTexture("Weapons/weapon_4.png"),
-	texture[5] = LoadTexture("Weapons/weapon_5.png"),
-	texture[6] = LoadTexture("Weapons/weapon_6.png"),
-	texture[7] = LoadTexture("Weapons/weapon_7.png");
+	for (int i = 0; i < 8; i++) {
+		texture[i] = LoadTexture(("Weapons/weapon_" + std::to_string(i) + ".png").c_str());
+	}
 	pos.x = xrand;
 	pos.y = 0;
 
